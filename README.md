@@ -1,6 +1,6 @@
 # Transkripsi.id Playwright Automation
 
-This project automates the testing of the Transkripsi web application using Playwright and BDD (Behavior Driven Development) with `playwright-bdd`.
+This project automates the testing of the [Transkripsi.id](https://transkripsi.id/) web application using Playwright and BDD (Behavior Driven Development) with [`playwright-bdd`](https://vitalets.github.io/playwright-bdd/#/).
 
 ## Requirements
 
@@ -51,7 +51,7 @@ After cloning the repository, you need to create a `test-user.js` file that cont
     ```bash
     npm run test-h
     ```
-- Run tests by reusing signed in state (skipping authentication step):
+- To run the tests by reusing signed in state (**skipping authentication step**):
     ```bash
     $env:SKIP_AUTH = "true"
     npm run test
