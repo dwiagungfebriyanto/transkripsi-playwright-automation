@@ -1,0 +1,32 @@
+{
+  "name": "transkripsi-playwright-automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "bddgen": "npx bddgen",
+    "test": "npm run bddgen && npm run playwright-test",
+    "test-r": "npm run bddgen && npm run playwright-test && npm run report",
+    "test-h": "npm run bddgen && npm run playwright-test-headed",
+    "test-h-r": "npm run bddgen && npm run playwright-test-headed && npm run report",
+    "playwright-test": "npx playwright test",
+    "playwright-test-headed": "npx playwright test --headed",
+    "report": "npx playwright show-report"
+  },
+  "keywords": [],
+  "author": "Dwi Agung Febriyanto",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "playwright-bdd": "^7.5.0"
+  },
+  "dependencies": {
+    "@playwright/test": "1.35.0",
+    "langdetect": "^0.2.1",
+    "playwright": "1.33.0",
+    "playwright-extra": "4.3.6",
+    "puppeteer-extra-plugin-stealth": "2.11.2",
+    "puppeteer-extra-plugin-user-data-dir": "2.4.1",
+    "puppeteer-extra-plugin-user-preferences": "2.4.1"
+  }
+}

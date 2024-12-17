@@ -1,0 +1,10 @@
+node_modules/
+/.features-gen/
+/.vscode/
+/downloaded-files/
+/lib/test-user.js
+/setup/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
