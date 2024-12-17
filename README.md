@@ -1,6 +1,6 @@
 # Transkripsi.id Playwright Automation
 
-This project automates the testing of the [Transkripsi.id](https://transkripsi.id/) web application using Playwright and BDD (Behavior Driven Development) with [`playwright-bdd`](https://vitalets.github.io/playwright-bdd/#/).
+This project automates the testing of the [Transkripsi.id](https://transkripsi.id/) web application using [Playwright](https://playwright.dev/) and BDD (Behavior Driven Development) with [`playwright-bdd`](https://vitalets.github.io/playwright-bdd/#/).
 
 ## Requirements
 
