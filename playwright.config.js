@@ -4,8 +4,8 @@ import { chromium } from 'playwright-extra';
 import stealth from 'puppeteer-extra-plugin-stealth';
 
 chromium.use(stealth());
-                                       
-const baseURL = process.env.BASE_URL || 'https://transkripsi.id'; 
+                                        
+const baseURL = process.env.BASE_URL || 'https://transkripsi.id';
 const testDir = defineBddConfig({
   features: 'tests/features/***.feature',
   steps: ['tests/steps/***.js', 'tests/fixtures/fixture.js'],

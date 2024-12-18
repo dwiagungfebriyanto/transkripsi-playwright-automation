@@ -62,5 +62,6 @@ After cloning the repository, you need to create a `test-user.js` file that cont
 2. Once authenticated, the signed-in session is saved in the `setup/storage-state.json` file.
 3. After successful authentication, the tests will run and utilize the saved signed-in state to avoid re-authenticating on every test execution.
 4. To speed up future test runs, you can skip the authentication process by setting the `SKIP_AUTH=true` option in the CLI. This option will work if the signed-in state file (`setup/storage-state.json`) already exists.
+5. To re-run the authentication process, set `SKIP_AUTH=false`. This will force the system to go through the authentication process again before running the tests.
 
 The authentication process implemented in this project is based on the work done by [adequatica/ui-testing-auth](https://github.com/adequatica/ui-testing-auth).
