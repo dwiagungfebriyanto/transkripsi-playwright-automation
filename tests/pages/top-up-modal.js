@@ -29,6 +29,7 @@ class TopUpModal extends BasePage {
     /**
      * Selects a transcript package based on the given package type.
      * @param {string} transcriptPackage - The type of transcript package ('1', '3', or '5').
+     * @throws {Error} - Will throw an error if the package type is invalid.
      */
     async selectPackage(transcriptPackage) {
         switch (transcriptPackage) {
@@ -42,7 +43,7 @@ class TopUpModal extends BasePage {
                 await this.click(this.oneTranscriptPrice);
                 break;
             default:
-                console.log('Invalid package');
+                throw new Error('Invalid package');
         }
     }
 
