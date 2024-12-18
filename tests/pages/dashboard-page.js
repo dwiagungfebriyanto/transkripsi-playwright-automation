@@ -17,8 +17,9 @@ class DashboardPage extends BasePage {
         this.transcriptGoogleDriveLinkBtn = page.locator('#transcript-gdrive-link');
         this.progressBar = page.locator('[role="progressbar"]');
         this.unsupportedFileError = page.locator('text=Format file tidak didukung');
-        this.invalidLinkError = page.locator('text=Link Google Drive Invalid');
-        this.restrictedLinkError = page.locator('text=Link Privat');
+        this.invalidLinkError = page.locator('text=Format penulisan link Google Drive tidak sesuai');
+        this.invalidLinkToast = page.locator('text=Pastikan link Google Drive valid dan publik');
+        this.restrictedLinkToast = page.locator('text=Link Privat');
         this.transcriptWillBeProcessedToast = page.locator("text=Transkripsi akan segera diproses. Anda dapat memantau prosesnya di tab 'Riwayat Transkripsi'");
         this.voiceDetectionResult = page.locator('text=% file tidak berisi suara')
         this.largeSizeFileWarning = page.locator('text=File besar memerlukan waktu lebih lama')
@@ -138,10 +139,17 @@ class DashboardPage extends BasePage {
     }
 
     /**
+     * Asserts that the invalid Google Drive link toast message is visible.
+     */
+    async invalidLinkToastVisible() {
+        await this.expectVisible(this.invalidLinkToast);
+    }
+
+    /**
      * Asserts that the restricted Google Drive link error toast message is visible.
      */
-    async restrictedLinkErrorVisible() {
-        await this.expectVisible(this.restrictedLinkError);
+    async restrictedLinkToastVisible() {
+        await this.expectVisible(this.restrictedLinkToast);
     }
 
     /**
@@ -152,10 +160,11 @@ class DashboardPage extends BasePage {
     async googleDriveLinkErrorVisible(warningType) {
         switch (warningType) {
             case 'invalid':
+                await this.invalidLinkToastVisible();
                 await this.invalidLinkErrorVisible();
                 break;
             case 'restricted':
-                await this.restrictedLinkErrorVisible();
+                await this.restrictedLinkToastVisible();
                 break;
             default:
                 throw new Error('Invalid warning type');

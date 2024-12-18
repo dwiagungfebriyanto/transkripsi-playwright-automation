@@ -21,6 +21,7 @@ Feature: Upload file
             | ./test-assets/Large-File.mp3      | Test Large File     | large file            |
             | ./test-assets/Large-NoVoice.wav   | Test Large No Voice | large file no voice   |
 
+    # @skip
     Scenario Outline: Warning appears when user uploads using invalid or restricted Google Drive link
         When User uploads a Google Drive link: "<link>" with "<title>" as the title
         And User clicks Google Drive upload button
