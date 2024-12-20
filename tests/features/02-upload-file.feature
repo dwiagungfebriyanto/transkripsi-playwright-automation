@@ -1,4 +1,3 @@
-# @skip
 Feature: Upload file
 
     This feature encompasses the various scenarios that a user can encounter while uploading 
@@ -9,7 +8,6 @@ Feature: Upload file
     Background:
         Given User is on the dashboard page
 
-    # @skip
     Scenario Outline: Warning appears when user uploads files that do not contain voices or large files
         When User uploads a file: "<file>" with "<title>" as the title
         Then User should see a "<warning>" warning message
@@ -21,7 +19,6 @@ Feature: Upload file
             | ./test-assets/Large-File.mp3      | Test Large File     | large file            |
             | ./test-assets/Large-NoVoice.wav   | Test Large No Voice | large file no voice   |
 
-    # @skip
     Scenario Outline: Warning appears when user uploads using invalid or restricted Google Drive link
         When User uploads a Google Drive link: "<link>" with "<title>" as the title
         And User clicks Google Drive upload button
@@ -32,12 +29,10 @@ Feature: Upload file
             | https://transkripsi.id/                                                               | Test GDrive Invalid Link      | invalid       |
             | https://drive.google.com/file/d/1J2nhPtNbwWb_qNmu7qMntj7xT1_X-pNq/view?usp=sharing    | Test GDrive Restricted Link   | restricted    |
 
-    # @skip
     Scenario: Failed upload without file
         When User does not upload a file
         Then The upload button should be disabled
 
-    # @skip
     Scenario Outline: Failed upload unsupported file formats
         When User uploads a file: "<file>" with "<title>" as the title
         Then User should see an error message
@@ -51,7 +46,6 @@ Feature: Upload file
             | ./test-assets/FLAC.flac       | Test FLAC |
             | ./test-assets/WMA.wma         | Test WMA  |
 
-    # @skip
     Scenario Outline: Successful upload supported file formats
         When User uploads a file: "<file>" with "<title>" as the title
         And User clicks upload button
@@ -69,7 +63,6 @@ Feature: Upload file
             # | ./test-assets/MOV.mov         | Test MOV  |
             # | ./test-assets/M4V.m4v         |           |
 
-    # @skip
     Scenario Outline: Successful file upload using public Google Drive link
         When User uploads a Google Drive link: "<link>" with "<title>" as the title
         And User clicks Google Drive upload button

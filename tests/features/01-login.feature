@@ -1,4 +1,3 @@
-# @skip
 Feature: Login
 
     This feature ensures that users can log in to the application using 

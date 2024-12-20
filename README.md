@@ -65,3 +65,30 @@ After cloning the repository, you need to create a `test-user.js` file that cont
 5. To re-run the authentication process, set `SKIP_AUTH=false`. This will force the system to go through the authentication process again before running the tests.
 
 The authentication process implemented in this project is based on the work done by [adequatica/ui-testing-auth](https://github.com/adequatica/ui-testing-auth).
+
+### Additional Information
+- To test in a different environment, modify the `baseURL` in the `playwright.config.js` file.
+- Ensure that the account used for testing has at least 25 credits available to run the tests.
+- The voucher codes might need to be updated as they could be tied to specific accounts.
+- To run a specific scenario or feature, the `@only` tag can be used to target it. For example:
+    ```gherkin
+    @only
+    Scenario: Successful login using Google Account
+        Given User is on the landing page
+        When User login using Google Account
+        Then User should be redirected to dashboard page
+    ```
+    Similarly, to skip a specific scenario or feature, the `@skip` tag can be used:
+    ```gherkin
+    @skip
+    Feature: Login
+
+    This feature ensures that users can log in to the application using 
+    their Google account.
+
+    Scenario: Successful login using Google Account
+        Given User is on the landing page
+        When User login using Google Account
+        Then User should be redirected to dashboard page
+    ```
+    For more information about tags, click [here](https://vitalets.github.io/playwright-bdd/#/writing-features/special-tags).
