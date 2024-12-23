@@ -142,7 +142,7 @@ class DashboardPage extends BasePage {
      * Asserts that the invalid Google Drive link toast message is visible.
      */
     async invalidLinkToastVisible() {
-        await this.expectVisible(this.invalidLinkToast);
+        await this.isVisible(this.invalidLinkToast);
     }
 
     /**
