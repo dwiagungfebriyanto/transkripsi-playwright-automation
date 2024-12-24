@@ -15,6 +15,7 @@ class DashboardPage extends BasePage {
         this.uploadAndTranscriptBtn = page.locator('#upload-and-transcript');
         this.googleDriveLinkInput = page.locator('[placeholder="pastikan akses link Anda publik"]');
         this.transcriptGoogleDriveLinkBtn = page.locator('#transcript-gdrive-link');
+        this.transcriptGoogleDriveLinkBtnProcessing = page.locator('text=Harap tunggu sebentar');
         this.progressBar = page.locator('[role="progressbar"]');
         this.unsupportedFileError = page.locator('text=Format file tidak didukung');
         this.invalidLinkError = page.locator('text=Format penulisan link Google Drive tidak sesuai');
@@ -183,6 +184,14 @@ class DashboardPage extends BasePage {
      */
     async disabledUploadAndTranscriptBtn() {
         await this.expectDisabled(this.uploadAndTranscriptBtn);
+    }
+
+    /**
+     * Asserts that the "Transkrip Link Google Drive" button is enabled and not in processing status.
+     */
+    async enabledTranscriptGoogleDriveLinkBtn() {
+        await this.expectEnabled(this.transcriptGoogleDriveLinkBtn);
+        await this.isNotVisible(this.transcriptGoogleDriveLinkBtnProcessing);
     }
 
     /**

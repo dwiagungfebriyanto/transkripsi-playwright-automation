@@ -86,6 +86,8 @@ Then('User should see an error message', async ({ dashboardPage }) => {
 Then('User should see a {string} Google Drive link warning message', async ({ dashboardPage }, warningType) => {
     // Check if the correct warning message is visible
     await dashboardPage.googleDriveLinkErrorVisible(warningType);
+    // Check if the "Transkrip Link Google Drive" button is enabled
+    await dashboardPage.enabledTranscriptGoogleDriveLinkBtn();
 });
   
 Then('The upload button should be disabled', async ({ dashboardPage }) => {
