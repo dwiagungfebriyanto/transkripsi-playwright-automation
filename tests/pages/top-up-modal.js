@@ -5,8 +5,9 @@ class TopUpModal extends BasePage {
         super(page);
         // Locators for the elements on the top-up modal
         this.TopUpModal = page.locator('text=Selesaikan pembayaran untuk mendapatkan transkripsi');
+        // this.threeTranscriptPrice = page.locator('//h3[contains(text(), "3 kali Transkrip")]');
+        this.thirtyTranscriptPrice = page.locator('//h3[contains(text(), "30 kali Transkrip")]');
         this.fiveTranscriptPrice = page.locator('//h3[contains(text(), "5 kali Transkrip")]');
-        this.threeTranscriptPrice = page.locator('//h3[contains(text(), "3 kali Transkrip")]');
         this.oneTranscriptPrice = page.locator('//h3[contains(text(), "1 kali Transkrip")]');
         this.voucherCodeInput = page.locator('[placeholder="Masukkan kode voucher disini"]');
         this.reedemVoucherBtn = page.locator('#redeemVoucherButton');
@@ -28,16 +29,16 @@ class TopUpModal extends BasePage {
 
     /**
      * Selects a transcript package based on the given package type.
-     * @param {string} transcriptPackage - The type of transcript package ('1', '3', or '5').
+     * @param {string} transcriptPackage - The type of transcript package ('1', '5', or '30').
      * @throws {Error} - Will throw an error if the package type is invalid.
      */
     async selectPackage(transcriptPackage) {
         switch (transcriptPackage) {
+            case '30':
+                await this.click(this.thirtyTranscriptPrice);
+                break;
             case '5':
                 await this.click(this.fiveTranscriptPrice);
-                break;
-            case '3':
-                await this.click(this.threeTranscriptPrice);
                 break;
             case '1':
                 await this.click(this.oneTranscriptPrice);

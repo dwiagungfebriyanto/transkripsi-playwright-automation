@@ -22,8 +22,8 @@ Feature: Top up and transaction history
 
         Examples:
             | package | price    |
+            | 30      | Rp90.000 |
             | 5       | Rp25.000 |
-            | 3       | Rp20.000 |
             | 1       | Rp10.000 |
 
     Scenario Outline: Successfuly top up credit with various packages using voucher
@@ -35,8 +35,8 @@ Feature: Top up and transaction history
 
         Examples:
             | package | price    |
+            | 30      | Rp67.500 |
             | 5       | Rp18.750 |
-            | 3       | Rp15.000 |
             | 1       | Rp7.500  |
 
     Scenario Outline: Failed redeem voucher with invalid code
