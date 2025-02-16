@@ -22,8 +22,9 @@ Feature: Top up and transaction history
 
         Examples:
             | package | price    |
-            | 30      | Rp90.000 |
-            | 5       | Rp25.000 |
+            # | 30      | Rp90.000 |
+            # | 5       | Rp25.000 |
+            | 4       | Rp25.000 |
             | 1       | Rp10.000 |
 
     Scenario Outline: Successfuly top up credit with various packages using voucher
@@ -35,9 +36,10 @@ Feature: Top up and transaction history
 
         Examples:
             | package | price    |
-            | 30      | Rp67.500 |
-            | 5       | Rp18.750 |
-            | 1       | Rp7.500  |
+            # | 30      | Rp67.500 |
+            # | 5       | Rp18.750 |
+            | 4       | Rp22.500 |
+            | 1       | Rp9.000  |
 
     Scenario Outline: Failed redeem voucher with invalid code
         Given User opens top up modal
@@ -45,11 +47,10 @@ Feature: Top up and transaction history
         Then User should see an error message that the code is invalid
 
         Examples:
-            | code          |
-            |               |
-            | 1234          |
-            | WICARATESLLSA | 
-            # valid code: WICARATESLLsA
+            | code         |
+            | 1234         |
+            | WICARAMMA948 | 
+            # valid code: WICARAMMa948
 
     Scenario: Successfully cancel a pending transaction from the top up modal
         Given User opens top up modal

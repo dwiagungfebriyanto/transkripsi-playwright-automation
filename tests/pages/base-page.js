@@ -4,8 +4,10 @@ class BasePage {
     constructor(page) {
         this.page = page;
         // Locator for the WhatsApp group modal
-        this.waGroupModal = page.locator('text=Gabung grup untuk dapatkan voucher');
-        this.waGroupModalCloseBtn = page.locator('#laterButton');
+        // this.waGroupModal = page.locator('text=Gabung grup untuk dapatkan voucher');
+        this.waGroupModal = page.getByRole('heading', { name: 'Gabung grup untuk dapatkan voucher' });
+        // this.waGroupModalCloseBtn = page.locator('#laterButton');
+        this.waGroupModalCloseBtn = page.getByRole('button', { name: 'Nanti Saja' });
     }
 
     /**
@@ -113,12 +115,18 @@ class BasePage {
     async navigateTo(url) {
         await this.page.goto(url, { waitUntil: 'load' });
         try {
+            await this.page.waitForSelector('xpath=//*[contains(text(), "Gabung grup untuk dapatkan voucher")]', { timeout: 5000 }).catch(() => null);
             const waGroupModalVisible = await this.waGroupModal?.isVisible();
+            
             if (waGroupModalVisible) {
+                console.log('Modal muncul, mencoba menutup modal...');
                 await this.waGroupModalCloseBtn?.click();
+                console.log('Tombol tutup modal diklik');
+            } else {
+                console.log('Modal tidak muncul');
             }
         } catch (error) {
-            console.log('No modal appeared.');
+            console.log('Terjadi kesalahan:', error);
         }
     }
 
@@ -131,12 +139,18 @@ class BasePage {
         await this.waitForLoadState();
         await expect(this.page).toHaveURL(url);
         try {
+            await this.page.waitForSelector('xpath=//*[contains(text(), "Gabung grup untuk dapatkan voucher")]', { timeout: 5000 }).catch(() => null);
             const waGroupModalVisible = await this.waGroupModal?.isVisible();
+            
             if (waGroupModalVisible) {
+                console.log('Modal muncul, mencoba menutup modal...');
                 await this.waGroupModalCloseBtn?.click();
+                console.log('Tombol tutup modal diklik');
+            } else {
+                console.log('Modal tidak muncul');
             }
         } catch (error) {
-            console.log('No modal appeared.');
+            console.log('Terjadi kesalahan:', error);
         }
     }
 }

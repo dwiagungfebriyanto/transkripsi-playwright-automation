@@ -31,7 +31,7 @@ When('User selects package of {string} transcripts', async ({ topUpModal }, tran
 
 When('User top up with the selected package', async ({ topUpModal }) => {
     // Select the package of 5 transcripts
-    await topUpModal.selectPackage('5');
+    await topUpModal.selectPackage('4');
 });
 
 When('User should see Midtrans payment page with the same price: {string}', async ({ midtransModal }, price) => {
@@ -63,7 +63,7 @@ When('User clicks top up button', async ({ topUpModal }) => {
 
 // And User use a valid voucher code
 When('User use a valid voucher code', async ({ topUpModal }) => {
-    const voucherCode = 'WICARATESLLsA';
+    const voucherCode = 'WICARAMMa948';
     // Redeem the valid voucher code
     await topUpModal.inputVoucherCode(voucherCode);
     await topUpModal.clickRedeemVoucherBtn();
